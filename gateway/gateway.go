@@ -362,6 +362,7 @@ func (gw *Gateway) modifyUsername(msg *config.Message, dest *bridge.Bridge) stri
 	nick = strings.ReplaceAll(nick, "{GATEWAY}", gw.Name)
 	nick = strings.ReplaceAll(nick, "{LABEL}", br.GetString("Label"))
 	nick = strings.ReplaceAll(nick, "{NICK}", msg.Username)
+	nick = strings.ReplaceAll(nick, "{INITIALS}", gw.getInitials(msg.Username))
 	nick = strings.ReplaceAll(nick, "{USERID}", msg.UserID)
 	nick = strings.ReplaceAll(nick, "{CHANNEL}", msg.Channel)
 	tengoNick, err := gw.modifyUsernameTengo(msg, br)
@@ -370,6 +371,37 @@ func (gw *Gateway) modifyUsername(msg *config.Message, dest *bridge.Bridge) stri
 	}
 	nick = strings.ReplaceAll(nick, "{TENGO}", tengoNick)
 	return nick
+}
+
+func (gw *Gateway) getInitials(nick string) string {
+	// This function is probably not in the right place but whatever.
+	// Returns Pesterchum style initials: GC, EB, TT, etc.
+	initials := ""
+	if len(nick) > 0 {
+		for i:=0; i < len(nick); i++ {
+			// Convert character (bytes) to string.
+			char := string(nick[i])
+			// Get first letter.
+			if len(initials) == 0 && strings.Contains("abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVW", char) {
+				initials += strings.ToUpper(char)
+			}
+			// Get next uppercase letter if first letter has been added.
+			if len(initials) == 1 && strings.Contains("ABCDEFGHIJKLMNOPQRSTUVW", char) {
+				initials += char
+			}
+		}
+		// If only one character has been added, add it twice
+		if len(initials) == 1 {
+			initials += initials
+		}
+		// Still nothing? Skill issue.
+		if len(initials) == 0 {
+			initials = "XX"
+		}
+	} else {
+                initials = "XX"
+	}
+        return initials
 }
 
 func (gw *Gateway) modifyAvatar(msg *config.Message, dest *bridge.Bridge) string {
