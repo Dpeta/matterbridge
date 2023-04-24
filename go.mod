@@ -1,7 +1,6 @@
 module github.com/42wim/matterbridge
 
 require (
-	github.com/42wim/go-gitter v0.0.0-20170828205020-017310c2d557
 	github.com/Baozisoftware/qrcode-terminal-go v0.0.0-20170407111555-c0650d8dff0f
 	github.com/Benau/tgsconverter v0.0.0-20210809170556-99f4a4f6337f
 	github.com/Philipp15b/go-steam v1.0.1-0.20200727090957-6ae9b3c0a560
@@ -11,7 +10,6 @@ require (
 	github.com/d5/tengo/v2 v2.13.0
 	github.com/davecgh/go-spew v1.1.1
 	github.com/fsnotify/fsnotify v1.6.0
-	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
 	github.com/gomarkdown/markdown v0.0.0-20221013030248-663e2500819c
 	github.com/google/gops v0.3.27
 	github.com/gorilla/schema v1.2.0
@@ -29,10 +27,12 @@ require (
 	github.com/matterbridge/gozulipbot v0.0.0-20211023205727-a19d6c1f3b75
 	github.com/matterbridge/logrus-prefixed-formatter v0.5.3-0.20200523233437-d971309a77ba
 	github.com/matterbridge/matterclient v0.0.0-20221106190440-8bcf49695e0d
+	github.com/matterbridge/telegram-bot-api/v6 v6.5.0
 	github.com/mattermost/mattermost-server/v5 v5.39.3
 	github.com/mattermost/mattermost-server/v6 v6.7.2
 	github.com/mattn/godown v0.0.1
 	github.com/mdp/qrterminal v1.0.1
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/nelsonken/gomf v0.0.0-20190423072027-c65cc0469e94
 	github.com/olahol/melody v1.1.2
 	github.com/paulrosania/go-charset v0.0.0-20190326053356-55c9d7a5834c
@@ -53,7 +53,7 @@ require (
 	golang.org/x/oauth2 v0.6.0
 	golang.org/x/text v0.8.0
 	gomod.garykim.dev/nc-talk v0.3.0
-	google.golang.org/protobuf v1.29.0
+	google.golang.org/protobuf v1.29.1
 	layeh.com/gumble v0.0.0-20221205141517-d1df60a3cc14
 	modernc.org/sqlite v1.21.0
 )
@@ -96,12 +96,9 @@ require (
 	github.com/minio/minio-go/v7 v7.0.24 // indirect
 	github.com/minio/sha256-simd v1.0.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/monaco-io/request v1.0.5 // indirect
-	github.com/mreiferson/go-httpclient v0.0.0-20201222173833-5e475fde3a4d // indirect
-	github.com/mrexodia/wray v0.0.0-20160318003008-78a2c1f284ff // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pborman/uuid v1.2.1 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
